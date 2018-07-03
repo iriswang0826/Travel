@@ -1,0 +1,47 @@
+<template>
+  <div class="container" @click="handleGallaryClick">
+    <div class="wrapper">
+      <img class="gallary-img" :src="imgs[0]">
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'CommonGallary',
+  props: {
+    imgs: {
+      type: Array,
+      default () {
+        return []
+      }
+    }
+  },
+  methods: {
+    handleGallaryClick () {
+      this.$emit('close')
+    }
+  }
+}
+</script>
+
+<style lang="stylus" scoped>
+  .container
+    display: flex
+    flex-direction: column
+    justify-content: center
+    z-index: 99
+    position: fixed
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+    background: #000
+    .wrapper
+      width: 100%
+      height: 0
+      overflow: hidden
+      padding-bottom: 100%
+      .gallary-img
+        width: 100%
+</style>
